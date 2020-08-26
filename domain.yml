@@ -1,0 +1,193 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- introduction_corona_virus
+- prevention
+- symptoms
+- spread_from_food
+- spread_of_community
+- fill_form
+- form_name
+- form_address
+- form_number
+- out_of_scope
+- bot_name
+- form_fever
+- form_dry_cough
+- form_triedness
+- form_diarrhoea
+- form_sore_throat
+- form_smell
+entities:
+- name
+- address
+- number
+- fever
+- dry_cough
+- triedness
+- diarrhoea
+- sore_throat
+- smell
+slots:
+  address:
+    type: unfeaturized
+  diarrhoea:
+    type: bool
+  dry_cough:
+    type: bool
+  fever:
+    type: bool
+  name:
+    type: unfeaturized
+  number:
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized
+  smell:
+    type: bool
+  sore_throat:
+    type: bool
+  triedness:
+    type: bool
+responses:
+  utter_botgreet:
+  - buttons:
+    - payload: /introduction_corona_virus
+      title: कोरोनाभाइरस
+    - payload: /prevention
+      title: रोकथाम उपाय
+    - payload: /symptoms
+      title: लक्षणहरू
+    text: नमस्ते, कृपया तपाईं मलाई कोरोना भाइरसको बारेमा सोध्न सक्नुहुन्छ र म तपाईंलाईसहयोग
+      गर्न खुसी छु |
+  utter_ask_address:
+  - text: कृपया मलाई फेरि तपाईंको ठेगाना दिनुहोस्
+  utter_bot_name:
+  - text: मसँग कुनै नाम छैन, तपाईं मलाई केही पनि नाम दिन सक्नुहुन्छ, म विशेष तपाईंको
+      स्वास्थ्य सहायक हुँ
+  utter_ask_affirmation:
+  - buttons:
+    - payload: /introduction_corona_virus
+      title: कोरोनाभाइरस
+    - payload: /prevention
+      title: रोकथाम उपाय
+    - payload: /symptoms
+      title: लक्षणहरू
+    - payload: /out_of_scope
+      title: Deney
+    text: 'Did You Mean:'
+  utter_ask_name:
+  - text: कृपया मलाई तपाईंको नाम दिनुहोस्
+  utter_ask_number:
+  - text: यदि तपाईलाई कुनै आपत्ति छैन भने के तपाई मलाई तपाईको फोन नम्बर नम्बर दिन
+      सक्नुहुन्छ?
+  utter_ask_fever:
+  - buttons:
+    - payload: /form_fever{"fever":"yes"}
+      title: छ
+    - payload: /form_fever{"fever":"No"}
+      title: छैन
+    text: के तपाईंलाई ज्वरो आएको छ?
+  utter_ask_dry_cough:
+  - buttons:
+    - payload: /form_dry_cough{"dry_cough":"yes"}
+      title: छ
+    - payload: /form_dry_cough{"dry_cough":"No"}
+      title: छैन
+    text: के तपाईंलाई सुख्खा खोकी छ?
+  utter_ask_triedness:
+  - buttons:
+    - payload: /form_triedness{"triedness":"yes"}
+      title: हुन्छ
+    - payload: /form_triedness{"triedness":"No"}
+      title: हुदैन
+    text: के तपाईं थकान् भएको महसुस गर्नुहुन्छ?
+  utter_ask_diarrhoea:
+  - buttons:
+    - payload: /form_diarrhoea{"diarrhoea":"yes"}
+      title: लाग्छ
+    - payload: /form_diarrhoea{"diarrhoea":"No"}
+      title: लाग्दैन
+    text: के तपाईलाई पखाला लाग्छ??
+  utter_ask_sore_throat:
+  - buttons:
+    - payload: /form_sore_throat{"sore_throat":"yes"}
+      title: छ
+    - payload: /form_sore_throat{"sore_throat":"No"}
+      title: छैन
+    text: के तपाईलाई घाँटी दुखेको छ?
+  utter_ask_smell:
+  - buttons:
+    - payload: /form_smell{"smell":"yes"}
+      title: थापाउदिन
+    - payload: /form_smell{"smell":"No"}
+      title: थापाउछु
+    text: के तपाईं गन्ध थापाउनु हुन्छ?
+  utter_ask_repharse:
+  - text: sorry
+  utter_default:
+  - text: Sorry, I didnot understand.
+  utter_goodbye:
+  - text: कृपया सुरक्षित हुनुहोस् र कोरोना भाइरस विरूद्ध लड्नुहोस्, धन्यवाद|
+  utter_introduction_corona_virus:
+  - text: कोरोनाभाइरस भाइरसहरूको एक ठूलो परिवार हो जसले श्वासप्रश्वासको संक्रमण निम्त्याउँछ।
+      यी सामान्य चिसो देखि अधिक गम्भीर रोगहरू सम्म पर्न सक्छ। COVID-19 एक नयाँ कोरोनाभाइरसको
+      कारण भएको रोग हो। यो पहिलो चोटि डिसेम्बर २०१ City मा चीनको वुहान शहरमा रिपोर्ट
+      गरिएको थियो।
+  utter_prevention:
+  - text: १. संक्रमण फैलिनबाट जोगाउन मानिसहरुले  नियमित रूपमा हात धुनु, खोक्दा र हाच्छ्यु
+      गर्दा मुख र नाक छोप्ने, मासु र अण्डा राम्रोसँग पकाउने २. श्वासप्रश्वासको बिरामीको
+      लक्षण देखिएका  कसैसँग नजिकको सम्पर्कबाट टाढा रहनुहोस् जस्तै खोकी र हाच्छ्यु।
+      ३. कम्तिमा २० सेकेन्डको लागि तपाईंको हात झोल साबुन (ह्यान्ड-वाश) बाट धुनुहोस्।
+      साबुनले हात धुन नहुनु राम्रो हो, यसले एक अर्काबाट दूषित हुन सक्छ। ४. श्वासप्रश्वासका
+      लक्षणहरू देखिएको मानिहरुसंग वा एक  अर्कासँग कुराकानी गर्दा मास्क लगाउनुहोस्  र
+      प्रत्यक्ष जनावरहरूसँग सम्पर्क नगर्नुहोस्।
+  utter_spread_from_food:
+  - text: हाल कोभीड - १९ को खानासँग सम्बन्धित प्रसारणलाई समर्थन गर्न कुनै प्रमाण छैन।
+      खाना तयार गर्नु वा खानु भन्दा पहिले सँधै साबुन र पानीले आफ्ना हातहरू सामान्य
+      खाद्य सुरक्षाको लागि २० सेकेन्ड धुन महत्वपूर्ण हुन्छ। दिनभरि हात धुनुहोस् तपाईंको
+      नाक उडाउँदा, खोकीमा वा छींकिएर, वा बाथरूममा जानु भएपछि। यो सम्भव हुन सक्छ कि
+      कुनै व्यक्तिले सतह वा वस्तुलाई छोएर त्यसमा भाइरस भएको सतह वा वस्तुलाई छोएर आफ्नो
+      मुख, नाक, वा सम्भवतः तिनीहरूको आँखामा छोएर  प्राप्त गर्न सक्दछ, तर यो भाइरसलाई
+      मुख्य तरिका मानिदैन। फैलिन्छ। सामान्यतया, सतहहरूमा यी कोरोना भाइरसको कम उपयुक्तताका
+      कारण, त्यहाँ खाद्य उत्पादन वा प्याकेजि बाट फैलिने धेरै कम जोखिम हुन्छ जुन परिवेश,
+      रेफ्रिजेरेटेड, वा स्थिर तापमानमा दिन वा हप्ताहरूमा पठाइन्छ।
+  utter_spread_of_community:
+  - text: सामुदायिक फिंजिनु भन्नाले  त्यो क्षेत्रमा मानिसहरू भाइरसले संक्रमित भएका
+      छन् तर   उनीहरू कसरी संक्रमित भएको निश्चित हुँदैन।
+  utter_submit:
+  - text: बधाई छ {s_name} ! तपाईंले प्रदान गर्नुभएको विवरणहरूबाट तपाईंलाइ कोरोना भाइरस
+      जोखिम कम रहेको छ। धन्यबाद ,{s_name} तपाईको अमुल्य समय र जानकारी को लागी।
+  utter_neg_submit:
+  - text: तपाईंले प्रदान गर्नुभएको विवरणहरूबाट, माफ गर्नुहोस्! तपाईं कोरोना भाइरस
+      को जोखिममा हुनुहुन्छ। चिन्ता नलिनुहोस् {s_name}, तपाईंको जानकारी हामीसँग छ त्यसैले
+      हामी तपाईंलाई सकेसम्म चाँडो समपरकमा अाउने परयास गरछऔ॥ । धन्यवाद।
+  utter_symptoms:
+  - text: धेरै सामान्य लक्षणहरू -- ज्वरो, सुख्खा खोकी, थकान || कम सामान्य लक्षणहरू
+      -- दुखाइ र पीडा, घाँटी दुखाइ, पखाला ,नेत्रश्लेष्मलाशोथ, टाउको दुखाइ, स्वाद वा
+      गन्ध को महसुस छैन ||
+  utter_thanks:
+  - text: Thank you
+actions:
+- utter_ask_name
+- utter_bot_name
+- utter_ask_address
+- utter_ask_number
+- utter_spread_of_community
+- utter_spread_from_food
+- utter_symptoms
+- utter_prevention
+- utter_introduction_corona_virus
+- utter_thanks
+- utter_goodbye
+- utter_botgreet
+- utter_submit
+- utter_neg_submit
+- actions_default_ask_affirmation
+forms:
+- test_form
